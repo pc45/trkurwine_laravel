@@ -34,7 +34,7 @@
                             </thead>
                             <tbody class="bg-gray-200">
 
-                            @foreach ($data as $key => $user)
+                            @foreach ($users as $key => $user)
                             <tr class="bg-white border-4 border-gray-200">
                                 <td>
                                     <span class="text-center ml-2 font-semibold">{{ $user->name }}</span>
@@ -46,7 +46,11 @@
                                     <span>{{ $user->mobile }}</span>
                                 </td>
                                 <td class="px-16 py-2">
-                                    <span>role?</span>
+                                    @if(!empty($user->getRoleNames()))
+                                        @foreach($user->getRoleNames() as $role)
+                                            <span>{{ $role }}</span>
+                                        @endforeach
+                                    @endif
                                 </td>
 
                                 <td class="flex px-16 py-2">
