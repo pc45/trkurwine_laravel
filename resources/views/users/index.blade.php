@@ -77,6 +77,13 @@
 
                             </tbody>
                         </table>
+
+                        <div>
+                            <div class="my-8">
+                                {{$users->links()}}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
