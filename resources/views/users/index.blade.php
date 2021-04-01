@@ -76,16 +76,9 @@
                                             </svg>
                                         </button>
                                     </a>
-
-                                    <a href="#">
-                                        <button class="bg-red-600 text-white px-4 py-2 border-red-900 rounded-md hover:bg-red-200 hover:border-red-900 hover:text-black ">
-                                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </a>
-
-
+                                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'bg-red-600 text-white px-4 py-2 border-red-900 rounded-md hover:bg-red-200 hover:border-red-900 hover:text-black ']) !!}
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                             @endforeach
