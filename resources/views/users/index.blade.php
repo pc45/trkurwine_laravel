@@ -1,8 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Manage Existing Users') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Manage Existing Users') }}
+            </h2>
+
+            <div class="float-right p-2 bg-gray-400 rounded-xl text-white">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <a class="" href="{{ route('users.create') }}"> Create New User</a>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -10,6 +19,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
+                        @if ($message = Session::get('success'))
+                            <div class="bg-green-400 text-white m-4 p-8">
+                                <p>{{ $message }}</p>
+                            </div>
+                        @endif
+
                         <table class="min-w-full table-auto">
                             <thead class="justify-between">
                             <tr class="bg-gray-800">
