@@ -18,6 +18,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    @include('layouts.user')
                     <div>
                         @if ($message = Session::get('success'))
                             <div class="bg-green-400 text-white m-4 p-8">
@@ -77,7 +78,7 @@
                                         </button>
                                     </a>
                                     {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                    {!! Form::submit('Delete', ['class' => 'bg-red-600 text-white px-4 py-2 border-red-900 rounded-md hover:bg-red-200 hover:border-red-900 hover:text-black ']) !!}
+                                    {!! Form::submit('x', ['class' => 'bg-red-600 text-white px-4 py-2 border-red-900 rounded-md hover:bg-red-200 hover:border-red-900 hover:text-black ']) !!}
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
