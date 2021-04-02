@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     //Route::resource('products', ProductController::class);
 });
+
+// Route for view/blade file.
+Route::get('importExportView', [ExcelController::class, 'importExportView'])->name('importExportView');
+// Route for export/download tabledata to .csv, .xls or .xlsx
+Route::get('exportExcel/{type}', [ExcelController::class, 'exportExcel'])->name('exportExcel');
+// Route for import excel data to database.
+Route::post('importExcel', [ExcelController::class, 'importExcel'])->name('importExcel');
 
 require __DIR__.'/auth.php';
