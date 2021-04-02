@@ -30,6 +30,12 @@ class ExcelController extends Controller
      */
     public function importExcel(Request $request)
     {
+
+        //TODO: validation on each row?
+        $request->validate([
+            'import_file' => 'required|max:10000|mimes:csv,txt',
+        ]);
+
         \Excel::import(new ShippersImport,$request->import_file);
 
         \Session::put('success', 'Your file is imported successfully in database.');
