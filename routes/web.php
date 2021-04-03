@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\ShippersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::get('/shippers', function () {
 })->name('shippers');
 
 Route::view('/shippers/search','shippers.index');
+
+Route::get('/shippers/{shipper:id}',[ShippersController::class, 'show'])->name('shippers.show');
 
 Route::group(['middleware' => ['auth']], function() {
     //Route::resource('roles', RoleController::class);

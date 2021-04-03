@@ -44,9 +44,10 @@ class ShippersController extends Controller
      * @param  \App\Models\Shippers  $shippers
      * @return \Illuminate\Http\Response
      */
-    public function show(Shippers $shippers)
+    public function show($id)
     {
-        //
+        $shippers = Shippers::find($id);
+        return view('shippers.show',compact('shippers'));
     }
 
     /**

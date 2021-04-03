@@ -14,7 +14,7 @@ class Shippers extends Model
     protected $guarded = array();
     protected $searchable = ['ownername','dba'];
 
-    /*protected $fillable = [
+    protected $fillable = [
         'ownername',
         'dba',
         'addressline1',
@@ -37,5 +37,5 @@ class Shippers extends Model
         'mailingaddresszip',
         'issuedate',
         'currentissuedate',
-        ]; */
+        ];
 }
