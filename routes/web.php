@@ -28,8 +28,14 @@ Route::get('/states', function () {
 })->name('states');
 
 Route::get('/users', function () {
-    return view('users');
+    return view('users.index');
 })->name('users');
+
+Route::get('/shippers', function () {
+   return view('shippers.index');
+})->name('shippers');
+
+Route::view('/shippers/search','shippers.index');
 
 Route::group(['middleware' => ['auth']], function() {
     //Route::resource('roles', RoleController::class);

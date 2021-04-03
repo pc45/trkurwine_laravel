@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Shippers extends Model
 {
     use HasFactory;
+    use Search;
 
     protected $table = 'shippers';
     protected $guarded = array();
+    protected $searchable = ['ownername','dba'];
 
     /*protected $fillable = [
         'ownername',
