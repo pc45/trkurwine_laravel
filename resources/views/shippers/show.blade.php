@@ -23,21 +23,21 @@
                             <div class="ml-2">{{$shippers->dba}}</div>
                         </div>
                         <div class="flex">
-                            <div class="block font-bold"><p>Contact:</p></div>
+                            <div class="block font-bold">Contact:</div>
                             <div class="ml-4">
-                                <ul class="flex flex row">
+                                <ul class="flex flex-row">
                                     <li >{{$shippers->contactname}}</li>
                                     <li class="ml-2">{{$shippers->emailaddress}}</li>
                                     <li class="ml-2">{{$shippers->contactphone}}</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-sm-4"><p><strong>Mailing Address:</strong></p></div>
-                            <div class="col-sm-8">
-                                <ul class="list-inline">
-                                    <li></li>
-                                    <li>,  </li>
+                        <div class="flex">
+                            <div class="block font-bold">Mailing Address:</div>
+                            <div class="ml-4">
+                                <ul class="block">
+                                    <li>{{$shippers->mailingaddressline1}}</li>
+                                    <li>{{$shippers->mailingaddresscity}}, {{$shippers->mailingaddressstate}}  {{$shippers->mailingaddresszip}}</li>
                                 </ul>
                             </div>
                         </div>
