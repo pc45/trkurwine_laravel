@@ -4,11 +4,13 @@ namespace App\Imports;
 
 use App\Models\Shippers;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithUpserts;
 use Carbon\Carbon;
 use SmartyStreets;
 
-class ShippersImport implements ToModel, WithHeadingRow
+class ShippersImport implements ToModel, WithHeadingRow, WithBatchInserts, WithUpserts
 {
     /**
     * @param array $row
@@ -66,5 +68,15 @@ class ShippersImport implements ToModel, WithHeadingRow
             'rdi' => $response['metadata']['rdi'],
             'smartystreet_response' => json_encode($response),
         ]);
+    }
+
+    public function batchSize(): int
+    {
+        return 250;
+    }
+
+    public function uniqueBy()
+    {
+        return 'ownername';
     }
 }
