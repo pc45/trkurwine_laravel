@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bc9e35741e7b52191409414cb6cbb5d",
+    "content-hash": "5952e342b23828e7a2a5db97acba3915",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -948,6 +948,37 @@
                 "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.1"
             },
             "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
+            "name": "fireenginered/smartystreets-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scs-ben/smartystreets-laravel",
+                "reference": "eccbc85a96ab31640d3db7d347496675d5e12a6c"
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FireEngineRed\\SmartyStreetsLaravel\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Scott A Connerly",
+                    "email": "scott.connerly@fire-engine-red.com"
+                }
+            ],
+            "description": "Laravel (PHP) SDK for using SmartyStreets geocoding.",
+            "time": "2021-01-19T13:11:15+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -8897,7 +8928,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "fireenginered/smartystreets-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

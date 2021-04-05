@@ -8,6 +8,7 @@
         "php": "^7.3|^8.0",
         "doctrine/dbal": "^3.0",
         "fideloper/proxy": "^4.4",
+        "fireenginered/smartystreets-laravel": "dev-master",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
@@ -63,6 +64,7 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+    "repositories": [ { "type": "git", "url": "https://github.com/scs-ben/smartystreets-laravel" } ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

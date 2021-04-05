@@ -6,6 +6,7 @@ use App\Models\Shippers;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Carbon\Carbon;
+use SmartyStreets;
 
 class ShippersImport implements ToModel, WithHeadingRow
 {
@@ -16,6 +17,12 @@ class ShippersImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
+        //TODO: Error Handle this
+        $response = SmartyStreets::addressQuickVerify(array(
+            'street'=>$row['addressline1'].' '.$row['addressline2'],
+            'city'=>$row['city'],
+            'state'=>$row['state'],
+        ));
 
         return new Shippers([
             'ownername'=> $row['ownername'] ,
@@ -39,7 +46,25 @@ class ShippersImport implements ToModel, WithHeadingRow
             'mailingaddressstate'=> $row['mailingaddressstate'] ,
             'mailingaddresszip'=> $row['mailingaddresszip'] ,
             'issuedate'=> Carbon::parse($row['issuedate'])->format('Y-m-d') ,
-            'currentissuedate'=> Carbon::Parse($row['currentissuedate'])->format('Y-m-d') ,
+            'currentissuedate'=> Carbon::Parse($row['currentissuedate'])->format('Y-m-d'),
+            'processed' => '1',
+            'primary_number' => $response['components']['primary_number'],
+            'street_name' => $response['components']['street_name'],
+            //'street_predirection' => $response['components'][''],
+            //'street_postdirection' => $response['components'][''],
+            'street_suffix' => $response['components']['street_suffix'],
+            //'secondary_number' => $response['components'][''],
+            //'secondary_designator' => $response['components'][''],
+            'city_name' => $response['components']['city_name'],
+            'default_city_name' => $response['components']['default_city_name'],
+            'state_abbreviation' => $response['components']['state_abbreviation'],
+            'ss_zipcode' => $response['components']['zipcode'],
+            'plus4_code' => $response['components']['plus4_code'],
+            'delivery_point' => $response['components']['delivery_point'],
+            'delivery_point_check_digit' => $response['components']['delivery_point_check_digit'],
+            'record_type' => $response['metadata']['record_type'],
+            'rdi' => $response['metadata']['rdi'],
+            'smartystreet_response' => json_encode($response),
         ]);
     }
 }
