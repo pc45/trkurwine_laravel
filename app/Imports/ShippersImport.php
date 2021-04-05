@@ -52,11 +52,7 @@ class ShippersImport implements ToModel, WithHeadingRow, WithBatchInserts, WithU
             'processed' => '1',
             'primary_number' => $response['components']['primary_number'],
             'street_name' => $response['components']['street_name'],
-            //'street_predirection' => $response['components'][''],
-            //'street_postdirection' => $response['components'][''],
             'street_suffix' => $response['components']['street_suffix'],
-            //'secondary_number' => $response['components'][''],
-            //'secondary_designator' => $response['components'][''],
             'city_name' => $response['components']['city_name'],
             'default_city_name' => $response['components']['default_city_name'],
             'state_abbreviation' => $response['components']['state_abbreviation'],
@@ -67,6 +63,11 @@ class ShippersImport implements ToModel, WithHeadingRow, WithBatchInserts, WithU
             'record_type' => $response['metadata']['record_type'],
             'rdi' => $response['metadata']['rdi'],
             'smartystreet_response' => json_encode($response),
+            // these fields arent coming back any longer??
+            //'secondary_number' => $response['components'][''],
+            //'secondary_designator' => $response['components'][''],
+            //'street_predirection' => $response['components'][''],
+            //'street_postdirection' => $response['components'][''],
         ]);
     }
 
